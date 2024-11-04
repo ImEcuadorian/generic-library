@@ -21,10 +21,11 @@ public class Files {
     }
 
     public String readFile() throws IOException {
+        data.setT2("");
         FileReader fileReader = new FileReader(data.getS1().getAbsolutePath());
         int character;
         while ((character = fileReader.read()) != -1) {
-            data.setT1(data.getT2() + character);
+            data.setT2(data.getT2() + String.valueOf((char)character));
         }
         fileReader.close();
         return data.getT2();
@@ -56,7 +57,7 @@ public class Files {
 
     public List<String> findWords(String string, String regex) {
         Pattern pattern = Pattern.compile(regex);
-        data.setArrayT(string.split(SPLIT_CHARACTERS));
+        data.setArrayT(string.split("(\s+|[,.;])"));
         for (String word : data.getArrayT()) {
             Matcher matcher = pattern.matcher(word);
             if (matcher.find()) {

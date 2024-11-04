@@ -30,4 +30,5 @@ tasks.jar {
     archiveBaseName.set("generic-library")
     archiveVersion.set("0.0.1")
     archiveClassifier.set("")
+    destinationDirectory.set(file("D:\\libIntelliJ\\generic-library\\build\\libs"))
 }

@@ -25,7 +25,7 @@ This utility class `Generic<T, S>` allows you to store and operate on two elemen
 Add the library to your project by cloning or importing it as a local dependency:
 
 ```bash
-git clone https://github.com/your-username/generic-library.git
+git clone https://github.com/imecuadorian/generic-library.git
 ```
 
 Make sure you have [Lombok](https://projectlombok.org/) and Java 21+ configured in your IDE and build tool.

@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "io.github.imecuadorian.library"
-version = "0.0.1"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -20,13 +20,19 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:$junitVersion")
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
+
 tasks.test {
     useJUnitPlatform()
 }
 
 tasks.jar {
     archiveBaseName.set("generic-library")
-    archiveVersion.set("0.0.1")
+    archiveVersion.set("1.0.0")
     archiveClassifier.set("")
 }
 

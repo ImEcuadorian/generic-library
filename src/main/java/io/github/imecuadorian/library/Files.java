@@ -6,6 +6,7 @@ import javax.swing.*;
 import javax.swing.filechooser.*;
 import java.io.*;
 import java.util.*;
+import java.util.regex.*;
 
 /**
  * Utility class for managing file and directory operations.
@@ -16,7 +17,8 @@ import java.util.*;
 public class Files {
 
     private final Generic<String, File> information;
-
+    private Pattern pattern;
+    private Matcher matcher;
     /**
      * Constructs a {@code Files} instance for managing a specific file or directory path.
      *
@@ -56,6 +58,22 @@ public class Files {
         return builder.toString();
     }
 
+    /**
+     * Extracts all substrings from the given input text that match the specified regular expression.
+     *
+     * @param text  the input string to search within
+     * @param regex the regular expression to use for matching substrings
+     * @return a list of strings containing all matches found in the input text
+     */
+    public List<String> getWordsByRegularExpression(String text, String regex) {
+        List<String> matches = new ArrayList<>();
+        pattern = Pattern.compile(regex);
+        matcher = pattern.matcher(text);
+        while (matcher.find()) {
+            matches.add(matcher.group());
+        }
+        return matches;
+    }
     /**
      * Creates the file or directory if it does not exist.
      *
